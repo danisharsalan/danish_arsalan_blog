@@ -4,7 +4,7 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en" ng-app="BlogApp"> <!--<![endif]-->
     <head>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
         <script src="app.js"></script>
         <meta charset="utf-8">
@@ -23,6 +23,18 @@
             <input ng-model="post.title" class="form-control" placeholder="Title"/>
             <textarea ng-model="post.body" class="form-control" placeholder="Body"></textarea>
             <button ng-click="createPost(post)" class="btn btn-primary btn-block" >Post</button>
+            <button ng-click="updatePost(post)" class="btn btn-success btn-block" >Update</button>
+
+            <div ng-repeat="post in posts">
+                <h2>
+                    {{post.title}}
+                    <a ng-click="editPost(post._id)" class="pull-right"><span class="glyphicon glyphicon-pencil"></span></a>
+                    <a ng-click="deletePost(post._id)" class="pull-right"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                </h2>
+                <em>{{post.posted}}</em>
+                <p>{{post.body}}</p>
+            </div>
+
         </div>
         
         
